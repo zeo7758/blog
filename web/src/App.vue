@@ -1,23 +1,20 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+      <cpt-header/>
+      <router-view/>
+      <!-- <cpt-footer/> -->
+  </cpt-footer/>
   </div>
 </template>
 
 <script>
+import cptHeader from '@/components/cpt-header/cpt-header';
+import cptFooter from '@/components/cpt-footer/cpt-footer'
 export default {
-  name: 'App'
+  name: 'App',
+  components:{cptHeader, cptFooter},
+
 }
 </script>
-
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
