@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import main from '@/page/index/main'
 import about from '@/page/about/about'
 import login from '@/page/login/login'
+import editor from '@/page/editor/editor'
 import articleList from '@/page/articleList/articleList'
 
 Vue.use(Router)
@@ -33,6 +34,11 @@ export default new Router({
             path: '/articleList',
             name: 'articleList',
             component: articleList
+        },
+        {
+            path: '/editor',
+            name: 'editor',
+            component: editor
         },
     ]
 })

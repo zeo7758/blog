@@ -1,13 +1,17 @@
 const Koa = require('koa');
 const path = require('path');
 const bodyParser = require('koa-bodyparser');
-const ejs = require('ejs');
+// const ejs = require('ejs');
 const session = require('koa-session-minimal');
-const router = require('koa-router');
+const route = require('koa-router');
 const views = require('koa-views');
 const staticCache = require('koa-static-cache');
 const config = require('./config/default');
+const koaStatic = require('koa-static');
 
+const user = require('./routers/user');
+const article = require('./routers/article');
+// const article = require('./routers/article');
 
 const app = new Koa();
 
@@ -27,9 +31,9 @@ const app = new Koa();
 
 
 // 配置静态资源加载中间件
-// app.use(koaStatic(
-//   path.join(__dirname , './public')
-// ))
+// const static = koaStatic(path.join(__dirname , './../dist/static'))
+//
+// app.use(static)
 // 缓存
 // app.use(staticCache(path.join(__dirname, './public'), { dynamic: true }, {
 //   maxAge: 365 * 24 * 60 * 60
@@ -48,13 +52,10 @@ app.use(bodyParser({
 }))
 
 // 路由
-//app.use(require('./routers/signin.js').routes())
-app.use(require('./routers/signUp.js').routes())
-//app.use(require('./routers/posts.js').routes())
-//app.use(require('./routers/signout.js').routes())
+app.use(user.routes())
+app.use(article.routes());
 
 
-
-
-
-app.listen('8888')
+app.listen(config.port, () => {
+    console.log('localhost:3001');
+})

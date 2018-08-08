@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: 'login',
     data() {
@@ -33,6 +34,15 @@ export default {
         onSubmit() {
 
         }
+    },
+    created(){
+        // , {
+        //     firstName: 'Fred',
+        //     lastName: 'Flintstone'
+        // }
+        axios.get('/blog/signIn').then(res => {
+            console.log(res);
+        })
     }
 
 }
