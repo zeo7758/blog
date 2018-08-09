@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-      <cpt-header/>
+      <!-- <cpt-header/> -->
       <router-view/>
       <!-- <cpt-footer/> -->
-  </cpt-footer/>
+  <!-- </cpt-footer/> -->
   </div>
 </template>
 

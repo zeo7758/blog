@@ -6,7 +6,7 @@
                   <el-input placeholder="请输入昵称" v-model="form.name"  clearable></el-input>
                 </el-form-item>
                 <el-form-item label="密码">
-                  <el-input placeholder="请输入密码" v-model="form.password"  clearable></el-input>
+                  <el-input placeholder="请输入密码" v-model="form.password"  type="password" clearable></el-input>
                 </el-form-item>
                 <el-form-item>
                    <el-button type="primary" @click="onSubmit">确定</el-button>
@@ -27,24 +27,37 @@ export default {
                 name: '',
                 password: '',
             }
-
         }
     },
     methods: {
         onSubmit() {
+            axios.post('/blog/signIn', {
+                name: this.form.name,
+                password: this.form.password,
+            }).then(res => {
+                if(res.data && res.data.success) {
+                    this.$message({
+                      message: '登录成功',
+                      type: 'warning',
+                      onClose: () => {
+                          this.$router.push({
+                              path: '/main'
+                          })
+                      }
+                    });
 
+                }else{
+                    this.$message({
+                      message: '登录失败',
+                      type: 'warning'
+                    });
+                }
+            })
         }
     },
     created(){
-        // , {
-        //     firstName: 'Fred',
-        //     lastName: 'Flintstone'
-        // }
-        axios.get('/blog/signIn').then(res => {
-            console.log(res);
-        })
-    }
 
+    }
 }
 </script>
 
