@@ -41,7 +41,7 @@ const app = new Koa();
 // app.use(staticCache(path.join(__dirname, './images'), { dynamic: true }, {
 //   maxAge: 365 * 24 * 60 * 60
 // }))
- // mongod --dbpath D:\mongo\data --logpath D:\mongo\log\mongo.log --journal
+// mongod --dbpath D:\mongo\data --logpath D:\mongo\log\mongo.log --journal
 
 // 配置服务端模板渲染引擎中间件
 app.use(views(path.join(__dirname, './views'), {

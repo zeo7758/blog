@@ -5,6 +5,7 @@ import about from '@/page/about/about'
 import login from '@/page/login/login'
 import editor from '@/page/editor/editor'
 import articleList from '@/page/articleList/articleList'
+import singerArticle from '@/page/singerArticle/singerArticle'
 
 Vue.use(Router)
 
@@ -12,12 +13,13 @@ export default new Router({
     routes: [
         {
             path: '/',
-            name: 'main',
-            component: main
+            redirect: {
+                name: 'mains',
+            }
         },
         {
             path: '/main',
-            name: 'main',
+            name: 'mains',
             component: main
         },
         {
@@ -39,6 +41,11 @@ export default new Router({
             path: '/editor',
             name: 'editor',
             component: editor
+        },
+        {
+            path: '/singerArticle/:id',
+            name: 'singerArticle',
+            component: singerArticle
         },
     ]
 })

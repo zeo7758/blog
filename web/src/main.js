@@ -12,6 +12,7 @@ Vue.use(ElementUI);
 // Vue.use(axios);
 // Vue.use(vuex)
 /* eslint-disable no-new */
+Vue.prototype.$axios = axios;
 new Vue({
   el: '#app',
   router,

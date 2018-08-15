@@ -2,7 +2,7 @@
   <div class="main">
       <el-container>
         <el-main>
-            mian
+            <articlelist></articlelist>
         </el-main>
         <el-aside width="200px">Aside</el-aside>
       </el-container>
@@ -10,19 +10,22 @@
 </template>
 
 <script>
+import articlelist from './../articleList/articleList'
 export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+    name: 'mains',
+    data () {
+        return {
+          msg: 'Welcome to Your Vue.js App'
+        }
+    },
+    components:{articlelist}
 }
 </script>
 
 <style scoped lang="styl">
     .main{
-        max-width: 1000px;
+        max-width: 960px;
         margin: 0 auto;
+        background: #fff;
     }
 </style>

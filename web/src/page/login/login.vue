@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
     name: 'login',
     data() {
@@ -31,7 +30,7 @@ export default {
     },
     methods: {
         onSubmit() {
-            axios.post('/blog/signIn', {
+            this.$axios.post('/blog/signIn', {
                 name: this.form.name,
                 password: this.form.password,
             }).then(res => {
@@ -45,7 +44,6 @@ export default {
                           })
                       }
                     });
-
                 }else{
                     this.$message({
                       message: '登录失败',

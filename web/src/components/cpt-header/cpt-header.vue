@@ -41,11 +41,11 @@ export default {
 
 <style lang="styl">
     .cpt-header
-        height: 60px
-        width: 100%
-        background:black
-        color:white
-        line-height: 60px
+        height 60px
+        width 100%
+        background black
+        color white
+        line-height 60px
         .title
             padding-left 36px
 
