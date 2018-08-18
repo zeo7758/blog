@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-      <!-- <cpt-header/> -->
-      <router-view/>
-      <!-- <cpt-footer/> -->
-  <!-- </cpt-footer/> -->
+      <cpt-header/>
+      <div class="main-wrap">
+            <router-view/>
+      </div>
+      <cpt-footer/>
   </div>
 </template>
 
@@ -16,5 +17,13 @@ export default {
 
 }
 </script>
-<style>
+<style lang='styl'>
+.main-wrap
+    max-width 960px
+    min-height 800px
+    margin 0 auto
+    background #fff
+    padding 36px
+
+
 </style>

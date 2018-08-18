@@ -35,12 +35,13 @@ export default {
                 password: this.form.password,
             }).then(res => {
                 if(res.data && res.data.success) {
+                    document.cookie="userId=1";
                     this.$message({
                       message: '登录成功',
                       type: 'warning',
                       onClose: () => {
                           this.$router.push({
-                              path: '/main'
+                              path: '/editor'
                           })
                       }
                     });

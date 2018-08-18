@@ -1,8 +1,7 @@
 <template lang="html">
     <section class="article">
-        <p>{{article.title || ''}}</p>
-        <div class="markdown" v-html="article.content || ''">
-        </div>
+        <p class="title" v-html="article.title || ''"></p>
+        <div class="markdown-body" v-html="article.content || ''"></div>
     </section>
 </template>
 
@@ -41,22 +40,11 @@ export default {
 </script>
 
 <style lang="styl">
-.markdown pre{
-    display: block;
-    overflow-x: auto;
-    padding: 0.5em;
-    background: #F0F0F0;
-    border-radius: 3px;
-    border: 1px solid #fff;
-}
-.markdown blockquote{
-    padding: 0 1em;
-    color: #6a737d;
-    border-left: 0.25em solid #dfe2e5;
-    margin: 10px 0;
-}
-.markdown ul li{
-    list-style: circle;
-    margin-top: 5px;
-}
+.article
+    padding 40px 0
+.title
+    font-size 36px
+    font-weight 400
+    padding 0 45px
+
 </style>

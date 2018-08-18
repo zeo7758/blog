@@ -8,6 +8,16 @@ router.post('/addArticle', async (ctx, next) => {
   let params = ctx.request.body;
   // ctx.request.body
   let {title, date1, desc, articleId} = params;
+  
+  title = title.replace(/[<">']/g, (target) => {
+      return {
+          '<': '&lt;',
+          '"': '&quot;',
+          '>': '&gt;',
+          "'": '&#39;'
+      }[target]
+  });
+
   // console.log(params);
   let userName = ctx.cookies.get('userName');
   let userId = ctx.cookies.get('userId');

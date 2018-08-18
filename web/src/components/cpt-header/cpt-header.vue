@@ -2,10 +2,10 @@
   <div class="cpt-header">
       <el-row :gutter="10">
           <el-col :span="20"><div class="title">小龘龘</div></el-col>
-          <el-col :span='4' type="flex">
-              <el-col :span='8'><div class="grid-content bg-purple-light" @click='goAbout'>关于</div></el-col>
-              <el-col :span='8'><div class="grid-content bg-purple" @click='goArticleList'>列表</div></el-col>
-              <el-col :span='8'><div class="grid-content bg-purple-light" @click='goLogin'>登录</div></el-col>
+          <el-col :span='4' type="flex" class="flexs">
+              <el-col :span='8'><div class="item" @click='goAbout'>关于</div></el-col>
+              <el-col :span='8'><div class="item" @click='goArticleList'>列表</div></el-col>
+              <!-- <el-col :span='8'><div class="item" @click='goLogin' >登录</div></el-col> -->
           </el-col>
       </el-row>
   </div>
@@ -48,5 +48,8 @@ export default {
         line-height 60px
         .title
             padding-left 36px
+        .flexs
+            .item
+                cursor: pointer;
 
 </style>

@@ -15,5 +15,11 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="styl">
+.cpt-footer
+    height 60px
+    width 100%
+    background black
+    color white
+    line-height 60px
 </style>

@@ -1,6 +1,9 @@
 <template lang="html">
     <div class="about">
-        关于我
+        <p class='title'>About</p>
+        <div class="">
+            web前端开发工程师
+        </div>
     </div>
 </template>
 
@@ -10,5 +13,11 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="styl">
+.about
+    .title
+        width 100%
+        text-align center
+        font-size 24px
+
 </style>

@@ -4,13 +4,16 @@
         <el-main>
             <articlelist></articlelist>
         </el-main>
-        <el-aside width="200px">Aside</el-aside>
+        <el-aside width="200px">
+            <blog-info></blog-info>
+        </el-aside>
       </el-container>
   </div>
 </template>
 
 <script>
-import articlelist from './../articleList/articleList'
+import articlelist from './../articleList/articleList';
+import blogInfo from './../blogInfo/blogInfo';
 export default {
     name: 'mains',
     data () {
@@ -18,14 +21,12 @@ export default {
           msg: 'Welcome to Your Vue.js App'
         }
     },
-    components:{articlelist}
+    components:{articlelist,blogInfo}
 }
 </script>
 
 <style scoped lang="styl">
     .main{
-        max-width: 960px;
-        margin: 0 auto;
-        background: #fff;
+
     }
 </style>

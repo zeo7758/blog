@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="articleList">
       <ul class="list">
-          <li class="article" v-for="art in articleList">
-              <h4 class="title">{{art.articleName}}</h4>
+          <li class="article" v-for="art in articleList" @click.stop.prevent='selectArticle(art.articleId)'>
+              <h4 class="titles" v-html="art.articleName"></h4>
               <div class="content">
                   {{art.content}}
               </div>
@@ -11,7 +11,7 @@
                   <span>{{formatDate(art.time)}}</span>
                   <!-- <span>阅读</span>
                   <span>评论</span> -->
-                  <span @click='editorArticle(art.articleId)' class='editor'>编辑</span>
+                  <span @click.stop.prevent='editorArticle(art.articleId)' class='editor' v-if='userId == 1'>编辑</span>
               </div>
           </li>
       </ul>
@@ -34,6 +34,11 @@ export default {
             nextShow:true
         }
     },
+    computed: {
+        userId() {
+            return common.getCookie('userId')
+        }
+    },
     methods: {
         formatDate(t) {
             return common.dateFormat(t, "YY-MM-DD")
@@ -48,6 +53,11 @@ export default {
         next() {
             this.pageIndex ++;
             this.getList();
+        },
+        selectArticle(id) {
+            this.$router.push({
+                path: `/singerArticle/${id}`
+            })
         },
         getList() {
             this.$axios.get('/blog/getArticleList',{
@@ -88,14 +98,14 @@ export default {
 }
 </script>
 
-<style lang="styl">
+<style lang="styl" >
 .articleList
     .list
         .article
-            margin-bottom 18px
             border-bottom 1px solid #DCDFE6
-            padding-bottom 16px
-            .title
+            padding 16px 0
+            cursor pointer
+            .titles
                 font-size 18px
                 font-weight 400
                 width 100%
@@ -122,9 +132,11 @@ export default {
                     padding-right 10px
     .btnwrap
         width 100%
+        margin-top 40px
         span
             padding 3px 10px
             cursor pointer
+            /* border 1px solid #ecf0f5 */
         .prev
             float left
         .next
